@@ -1,8 +1,8 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movimenta : MonoBehaviour
+public class movimenta2 : MonoBehaviour
 {
     public float Speed = 2.0f;
     public float JumpSpeed = 8.0f;
@@ -23,7 +23,7 @@ public class movimenta : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical"));
+            moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical2"));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= Speed;
 
@@ -44,6 +44,6 @@ public class movimenta : MonoBehaviour
         {
             Ani = false;
         }*/
-        transform.Rotate(0, Input.GetAxis("Horizontal"), 0);
+        transform.Rotate(0, Input.GetAxis("Horizontal2"), 0);
     }
 }
