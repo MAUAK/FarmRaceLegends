@@ -10,7 +10,14 @@ public class GameManager : MonoBehaviour
     public GameObject configuracoes;
     public GameObject creditos;
     public Slider volumeee;
+    public int target_FPS;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        Application.targetFrameRate = target_FPS;
+    }
+
     void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -37,6 +44,7 @@ public class GameManager : MonoBehaviour
                 atvconfiguracoes();
             }
         }
+
     }
 
     public void iniciar_jogo() 
