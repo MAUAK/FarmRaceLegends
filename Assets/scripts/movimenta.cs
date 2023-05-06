@@ -44,6 +44,6 @@ public class movimenta : MonoBehaviour
         {
             Ani = false;
         }*/
-        transform.Rotate(0, Input.GetAxis("Horizontal"), 0);
+        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
     }
 }

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class movimenta2 : MonoBehaviour
 {
-    public float Speed = 2.0f;
-    public float JumpSpeed = 8.0f;
+    public float Speed;
     public float gravity = 20.0f;
-    public float rotateSpeed = 3.0f;
+    public float rotateSpeed;
     private Vector3 moveDirection = Vector3.zero;
     private Animator animator;
     //public bool Ani;
@@ -21,29 +20,17 @@ public class movimenta2 : MonoBehaviour
     {
         CharacterController controller = GetComponent<CharacterController>();
 
-        if (controller.isGrounded)
+        if (Input.GetAxis("Fire1") != 0)
         {
-            moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical2"));
+            moveDirection = new Vector3(0, 0, Input.GetAxis("Fire1")*-1);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= Speed;
-
-            if (Input.GetButton("Jump"))
-                moveDirection.y = JumpSpeed;
         }
 
-        //animator.SetBool("Andando", Ani);
 
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
-        /*if (Input.GetAxis("Vertical") != 0)
-        {
 
-            Ani = true;
-        }
-        else
-        {
-            Ani = false;
-        }*/
-        transform.Rotate(0, Input.GetAxis("Horizontal2"), 0);
+        transform.Rotate(0, Input.GetAxis("Horizontal2") * rotateSpeed, 0);
     }
 }
