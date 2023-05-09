@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 524816997493058829}
   - component: {fileID: 524816997493058830}
-  - component: {fileID: 524816997493058831}
   m_Layer: 0
   m_Name: peixe
   m_TagString: Untagged
@@ -53,22 +52,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0.3, y: 4.6, z: 0.94}
---- !u!114 &524816997493058831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524816997493058828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be292a1ce4a7c843bcaea1d7160d81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 150
-  JumpSpeed: 0
-  gravity: 20
-  rotateSpeed: 4
 --- !u!1 &524816998099903789
 GameObject:
   m_ObjectHideFlags: 0

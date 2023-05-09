@@ -24,7 +24,7 @@ public class movimenta2 : MonoBehaviour
         {
             moveDirection = new Vector3(0, 0, Input.GetAxis("Fire1")*-1);
             moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= Speed;
+            //moveDirection *= Speed;
         }
 
 

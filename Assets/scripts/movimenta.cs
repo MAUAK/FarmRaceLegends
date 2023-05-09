@@ -6,7 +6,7 @@ public class movimenta : MonoBehaviour
 {
     public float Speed = 2.0f;
     public float JumpSpeed = 8.0f;
-    public float gravity = 20.0f;
+ //   public float gravity = 20.0f;
     public float rotateSpeed = 3.0f;
     private Vector3 moveDirection = Vector3.zero;
     private Animator animator;
@@ -33,7 +33,7 @@ public class movimenta : MonoBehaviour
 
         //animator.SetBool("Andando", Ani);
 
-        moveDirection.y -= gravity * Time.deltaTime;
+       // moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
         /*if (Input.GetAxis("Vertical") != 0)
         {

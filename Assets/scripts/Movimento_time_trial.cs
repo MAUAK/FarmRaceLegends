@@ -15,20 +15,25 @@ public class Movimento_time_trial : MonoBehaviour
     float temposec;
     float tempomin;
     public Scrollbar velocidadeatual;
+    public Scrollbar drift;
     float tempodrift;
     bool turbo;
     float tempoturbo;
+    float normalspeed;
 
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        normalspeed = Speed;
     }
 
     void Update()
     {
         velocidadeatual.size = acelerar;
+        drift.size = tempodrift/4;
+
         temposec = temposec + Time.deltaTime;
         if (temposec < 60)
         {
@@ -48,11 +53,11 @@ public class Movimento_time_trial : MonoBehaviour
         
         CharacterController controller = GetComponent<CharacterController>();
 
-        if (Input.GetAxis("Fire1") == 1 && acelerar<1) 
+        if (Input.GetAxis("Fire2") == 1 && acelerar<1) 
         {
             acelerar = acelerar + 0.05f;
         }
-        if (Input.GetAxis("Fire1") == 0 && acelerar > 0)
+        if (Input.GetAxis("Fire2") == 0 && acelerar > 0)
         {
             acelerar = acelerar - 0.01f;
         }
@@ -60,36 +65,43 @@ public class Movimento_time_trial : MonoBehaviour
         {
             acelerar = 0;
         }
-        moveDirection = new Vector3(rb.velocity.x, rb.velocity.y, acelerar*-1);
+        moveDirection = new Vector3(rb.velocity.x, 0, acelerar*-1*Speed);
         moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= Speed;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+
+        print(rb.velocity.y);
+
+        if (Input.GetButtonDown("Fire1"))
         {
-            rotateSpeed *= 1.5f;
-            Speed *= 0.8f;
+            Speed = Speed * 0.8f;
+            rotateSpeed *= 1.5f; 
         }
-        if (Input.GetKey(KeyCode.LeftShift)) 
+        if (Input.GetButton("Fire1")) 
         {
-            print(tempodrift+"tempodrift");
             tempodrift = tempodrift + Time.deltaTime;
             if (tempodrift > 4) 
             {
                 turbo = true;
             }
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetButtonUp("Fire1"))
         {
             tempodrift = 0;
             rotateSpeed *= 0.66667f;
-            Speed *= 1.25f;
+            Speed = Speed * 1.25f;
         }
-        if (tempodrift == 0 && turbo && tempoturbo<3)
+        if (tempodrift == 0 && turbo && tempoturbo < 3)
         {
-            tempoturbo = tempoturbo+Time.deltaTime;
-            print(tempoturbo+"tempoturbo");
+            tempoturbo = tempoturbo + Time.deltaTime;
+            Speed = normalspeed * 2;
         }
-
+        else if (tempoturbo>=3)
+        {
+            Speed = normalspeed;
+            tempoturbo = 0;
+            turbo = false;
+        }
+       
         controller.Move(moveDirection * Time.deltaTime);
      
         transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);

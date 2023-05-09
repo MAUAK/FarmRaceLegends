@@ -36,12 +36,10 @@ public class GameManager : MonoBehaviour
            if(Time.timeScale == 0) 
             {
                 Time.timeScale = 1;
-                atvconfiguracoes();
             }
            else if(Time.timeScale == 1) 
             {
                 Time.timeScale = 0;
-                atvconfiguracoes();
             }
         }
 
@@ -57,7 +55,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void atvconfiguracoes()
+    public void atvconfiguxacoes()
     {
         if (configuracoes.active == true)
         {
@@ -84,7 +82,6 @@ public class GameManager : MonoBehaviour
     public void voltaraojogo() 
     {
             Time.timeScale = 1;
-            atvconfiguracoes();
     }
 
     public void iraomenu() 
