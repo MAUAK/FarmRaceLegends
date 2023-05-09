@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex > 0)
         {
             ingame = true;
         }
@@ -33,21 +33,15 @@ public class GameManager : MonoBehaviour
         AudioListener.volume = volumeee.value;
         if (Input.GetKeyDown(KeyCode.Escape) && ingame) 
         {
-           if(Time.timeScale == 0) 
-            {
-                Time.timeScale = 1;
-            }
-           else if(Time.timeScale == 1) 
-            {
-                Time.timeScale = 0;
-            }
+            atvconfiguracoes();
+          
         }
 
     }
 
     public void iniciar_jogo() 
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void fechar_game() 
@@ -55,7 +49,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void atvconfiguxacoes()
+    public void atvconfiguracoes()
     {
         if (configuracoes.active == true)
         {
@@ -64,6 +58,15 @@ public class GameManager : MonoBehaviour
         else if (configuracoes.active == false)
         {
             configuracoes.SetActive(true);
+        }
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+        else if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
         }
     }
 
@@ -79,10 +82,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void voltaraojogo() 
-    {
-            Time.timeScale = 1;
-    }
 
     public void iraomenu() 
     {
