@@ -20,11 +20,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex > 0)
         {
             ingame = true;
         }
         volumeee.value = AudioListener.volume;
+        if (Time.timeScale == 0) 
+        {
+            Time.timeScale = 1;
+        }
     }
 
     // Update is called once per frame
@@ -33,16 +37,8 @@ public class GameManager : MonoBehaviour
         AudioListener.volume = volumeee.value;
         if (Input.GetKeyDown(KeyCode.Escape) && ingame) 
         {
-           if(Time.timeScale == 0) 
-            {
-                Time.timeScale = 1;
-                atvconfiguracoes();
-            }
-           else if(Time.timeScale == 1) 
-            {
-                Time.timeScale = 0;
-                atvconfiguracoes();
-            }
+            atvconfiguracoes();
+          
         }
 
     }
@@ -67,6 +63,15 @@ public class GameManager : MonoBehaviour
         {
             configuracoes.SetActive(true);
         }
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+        else if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     public void atvcreditos()
@@ -81,11 +86,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void voltaraojogo() 
-    {
-            Time.timeScale = 1;
-            atvconfiguracoes();
-    }
 
     public void iraomenu() 
     {
