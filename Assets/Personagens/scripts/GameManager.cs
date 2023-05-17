@@ -92,5 +92,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void jogar_timetrial() 
+    {
+        SceneManager.LoadScene(2);
+    }
+     
+    public void jogar_multi_local()
+    {
+        SceneManager.LoadScene(3);
+    }
 
 }

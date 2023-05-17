@@ -108,7 +108,7 @@ public class Local_multiplayer_1 : MonoBehaviour
 
         controller.Move(moveDirection * Time.deltaTime);
 
-        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+        transform.Rotate(0, Input.GetAxis("Horizontal2") * rotateSpeed, 0);
     }
 
     public void contadortempo()
