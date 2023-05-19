@@ -57,11 +57,11 @@ public class Local_multiplayer_1 : MonoBehaviour
 
         CharacterController controller = GetComponent<CharacterController>();
 
-        if (Input.GetAxis("Fire2") == 1 && acelerar < 1)
+        if (Input.GetAxis("Fire2_2") == 1 && acelerar < 1)
         {
             acelerar = acelerar + 0.05f;
         }
-        if (Input.GetAxis("Fire2") == 0 && acelerar > 0)
+        if (Input.GetAxis("Fire2_2") == 0 && acelerar > 0)
         {
             acelerar = acelerar - 0.01f;
         }
@@ -75,12 +75,12 @@ public class Local_multiplayer_1 : MonoBehaviour
 
 
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1_2"))
         {
             Speed = Speed * 0.8f;
             rotateSpeed *= 1.5f;
         }
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1_2"))
         {
             tempodrift = tempodrift + Time.deltaTime;
             if (tempodrift > 4)
@@ -88,7 +88,7 @@ public class Local_multiplayer_1 : MonoBehaviour
                 turbo = true;
             }
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1_2"))
         {
             tempodrift = 0;
             rotateSpeed *= 0.66667f;
