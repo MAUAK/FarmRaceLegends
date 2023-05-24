@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpeedBoost
+  - TXT_TEMPO
+  - BARRA_VELOCIDADE
+  - BARRA_DRIFT
   layers:
   - Default
   - TransparentFX
