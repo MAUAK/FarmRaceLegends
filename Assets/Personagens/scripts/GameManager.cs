@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject creditos;
     public Slider volumeee;
     public int target_FPS;
+    public GameObject carregando;
     // Start is called before the first frame update
 
     private void Awake()
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        carregando.SetActive(false);
         if (SceneManager.GetActiveScene().buildIndex > 0)
         {
             ingame = true;
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void iniciar_jogo() 
     {
+        carregando.SetActive(true);
         SceneManager.LoadScene(1);
     }
 
@@ -89,17 +92,25 @@ public class GameManager : MonoBehaviour
 
     public void iraomenu() 
     {
+        carregando.SetActive(true);
         SceneManager.LoadScene(0);
     }
 
     public void jogar_timetrial() 
     {
+        carregando.SetActive(true);
         SceneManager.LoadScene(2);
     }
      
     public void jogar_multi_local()
     {
+        carregando.SetActive(true);
         SceneManager.LoadScene(3);
     }
 
+    public void jogar_online() 
+    {
+        carregando.SetActive(true);
+        SceneManager.LoadScene(4);
+    }
 }
