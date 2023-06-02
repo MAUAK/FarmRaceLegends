@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     public Slider volumeee;
     public int target_FPS;
     public GameObject carregando;
+    public NetworkController controleonline;
+    public bool online;
+    public RaceController controledacorrida;
+    
     // Start is called before the first frame update
 
     private void Awake()
@@ -31,6 +35,12 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+        if(SceneManager.GetActiveScene().buildIndex > 3) 
+        {
+            controleonline = GameObject.FindGameObjectWithTag("Networkcontroller").GetComponent<NetworkController>();
+            controledacorrida = GameObject.FindGameObjectWithTag("controlecorrida").GetComponent<RaceController>();
+            online = true;
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +51,13 @@ public class GameManager : MonoBehaviour
         {
             atvconfiguracoes();
           
+        }
+        if (online)
+        {
+            if (controleonline.online_conectado)
+            {
+                controledacorrida.conectado = true;
+            }
         }
 
     }
@@ -90,8 +107,14 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void iraomenu() 
+    public void iraomenu()
     {
+        if (online)
+        {
+            print("desconectou");
+            online = false;
+            controleonline.disconnect();
+        }
         carregando.SetActive(true);
         SceneManager.LoadScene(0);
     }

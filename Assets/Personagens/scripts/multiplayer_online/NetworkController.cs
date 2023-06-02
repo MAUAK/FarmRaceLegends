@@ -21,6 +21,8 @@ public class NetworkController : MonoBehaviourPunCallbacks
     public GameObject playerPUN;
     public GameObject mainCamera;
 
+    public bool online_conectado;
+
 
     void Start()
     {
@@ -104,6 +106,16 @@ public class NetworkController : MonoBehaviourPunCallbacks
 
         Vector3 pos = new Vector3(Random.Range(-15,15), playerPUN.transform.position.y, Random.Range(-15, 15));
 
+        
         PhotonNetwork.Instantiate(playerPUN.name, pos, playerPUN.transform.rotation,0);
+        online_conectado = true;
+
+    }
+
+    public void disconnect() 
+    {
+        online_conectado = false;
+        print("Desconectou do server");
+        PhotonNetwork.Disconnect();
     }
 }

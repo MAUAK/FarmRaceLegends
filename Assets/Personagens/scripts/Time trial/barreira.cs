@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class barreira : MonoBehaviour
 {
-    private Movimento_time_trial jogador;
+    public bool passou;
+    public float tempopassou;
     private void OnTriggerEnter(Collider other)
     {
-        print(this.gameObject.name);
-        jogador.contadortempo();
+        if (other.gameObject.tag == "Player")
+        {
+            passou = true;
+        }
     }
-
     // Start is called before the first frame update
     void Start()
     {
-        jogador = GameObject.FindGameObjectWithTag("Player").GetComponent<Movimento_time_trial>();
+        passou = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
+        if (passou) 
+        {
+            tempopassou = tempopassou + Time.deltaTime;
+            if (tempopassou > 0.5f)
+            {
+                passou = false;
+                tempopassou = 0;
+            }
+        }
     }
 }
