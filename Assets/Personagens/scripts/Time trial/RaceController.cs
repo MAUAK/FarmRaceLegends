@@ -14,6 +14,7 @@ public class RaceController : MonoBehaviour
     int volta;
     bool falta1;
     public TMP_Text ui_volta;
+    private GameObject[] jogadores;
     private GameObject go;
 
     public 
