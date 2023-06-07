@@ -25,20 +25,46 @@ public class multiplayer_online : MonoBehaviourPun
     public int pontodecontrole;
     public TimerController controladortempo;
     public GameObject vitoria;
+    public GameObject derrota;
     public string tempovolta;
     public TMP_Text tempodavolta;
-    public float gravity = 9.81f;
+    public float gravity = 50f;
     public PhotonView photonview;
     public Camera myCamera;
+    public RaceController controledacorrida;
+    public int minhavolta;
+    public GameObject ultimoarco;
+    public int volta;
+    public float distanciaarco;
+    public int PL_arco;
+    public int i;
+    public barreira arco;
+    public GameObject go;
+    public bool falta1;
+    public float maisperto;
+    public TMP_Text ui_volta;
+    public GameObject[] arcos;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "caiu") 
+        {
+            transform.position = ultimoarco.transform.position;
+            acelerar = 0;
+        }
+    }
 
     void Start()
     {
+        arcos = GameObject.FindGameObjectsWithTag("arco");
         normalspeed = Speed;
 
         velocidadeatual = GameObject.FindGameObjectWithTag("BARRA_VELOCIDADE").GetComponent<Scrollbar>();
         drift = GameObject.FindGameObjectWithTag("BARRA_DRIFT").GetComponent<Scrollbar>();
         tempotxt = GameObject.FindGameObjectWithTag("TXT_TEMPO").GetComponent<TMP_Text>();
+        vitoria = GameObject.FindGameObjectWithTag("tela_vitoria");
+        derrota = GameObject.FindGameObjectWithTag("tela_derrota");
+
 
         photonview = GetComponent<PhotonView>();
 
@@ -53,8 +79,18 @@ public class multiplayer_online : MonoBehaviourPun
 
     void Update()
     {
+        photonView.RPC("qualposicao", RpcTarget.AllBuffered, volta);
+
+        void qualposicao()
+        {
+           
+        }
+
+
+
         if (photonview.IsMine)
         {
+           
 
             velocidadeatual.size = acelerar;
             drift.size = tempodrift / 4;
@@ -133,6 +169,33 @@ public class multiplayer_online : MonoBehaviourPun
 
             transform.Rotate(0, Input.GetAxis("Horizontal2") * rotateSpeed, 0);
         }
+    }
+
+    public void saberposicao() 
+    {
+        if (i < arcos.Length)
+        {
+            arco = arcos[i].GetComponent<barreira>();
+            go = arcos[i];
+            maisperto = Vector3.Distance(go.transform.position, this.transform.position);
+
+            if (arco.passou)
+            {
+                i++;
+            }
+        }
+        if (i >= arcos.Length)
+        {
+            i = 0;
+            falta1 = true;
+        }
+
+        if (falta1 == true && i == 1)
+        {
+            falta1 = false;
+            volta++;
+        }
+        ui_volta.text = "Volta " + volta + "/3";
     }
 
     public void contadortempo()

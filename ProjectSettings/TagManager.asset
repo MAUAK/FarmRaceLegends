@@ -10,6 +10,10 @@ TagManager:
   - BARRA_DRIFT
   - Networkcontroller
   - controlecorrida
+  - tela_vitoria
+  - tela_derrota
+  - caiu
+  - arco
   layers:
   - Default
   - TransparentFX

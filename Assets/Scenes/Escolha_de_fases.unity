@@ -1375,18 +1375,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797661610}
-  m_LocalRotation: {x: 0.03413465, y: 0.02276411, z: 0.3058688, w: 0.9511893}
+  m_LocalRotation: {x: 0.032305628, y: 0.01707773, z: 0.30606738, w: 0.9513083}
   m_LocalPosition: {x: 0, y: 0, z: 3.9}
   m_LocalScale: {x: 0.91328764, y: 0.75572, z: 0.75572}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1267753557}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 2.924, y: 3.685, z: 35.746}
+  m_LocalEulerAnglesHint: {x: 2.924, y: 3, z: 35.746}
   m_AnchorMin: {x: 0.2562884, y: 0.23600002}
   m_AnchorMax: {x: 0.76600003, y: 0.5196186}
-  m_AnchoredPosition: {x: 40, y: 7.5}
-  m_SizeDelta: {x: -16.583405, y: 47.750496}
+  m_AnchoredPosition: {x: 66.3887, y: -15.546}
+  m_SizeDelta: {x: -66.8198, y: -4.7222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &797661612
 MonoBehaviour:
@@ -3032,18 +3032,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622037109}
-  m_LocalRotation: {x: -0.014401636, y: -0.038417317, z: -0.30743346, w: 0.9506847}
+  m_LocalRotation: {x: -0.016242955, y: -0.032733228, z: -0.30733868, w: 0.95089835}
   m_LocalPosition: {x: 0, y: 0, z: -0.79059994}
   m_LocalScale: {x: 0.91328764, y: 0.75572, z: 0.75572}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1267753557}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -2.924, y: -3.685, z: -35.746}
+  m_LocalEulerAnglesHint: {x: -2.924, y: -3, z: -35.746}
   m_AnchorMin: {x: 0.2562884, y: 0.23600002}
   m_AnchorMax: {x: 0.76600003, y: 0.5196186}
-  m_AnchoredPosition: {x: -37.582993, y: 10.877991}
-  m_SizeDelta: {x: -16.583405, y: 47.750496}
+  m_AnchoredPosition: {x: -59.6, y: -11.253}
+  m_SizeDelta: {x: -72.9928, y: 5.0743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1622037111
 MonoBehaviour:
@@ -3208,6 +3208,9 @@ MonoBehaviour:
   volumeee: {fileID: 791006611}
   target_FPS: 60
   carregando: {fileID: 671021482}
+  controleonline: {fileID: 0}
+  online: 0
+  controledacorrida: {fileID: 0}
 --- !u!1 &1771344641
 GameObject:
   m_ObjectHideFlags: 0
