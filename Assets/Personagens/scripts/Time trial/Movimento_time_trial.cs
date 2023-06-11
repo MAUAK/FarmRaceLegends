@@ -31,6 +31,15 @@ public class Movimento_time_trial : MonoBehaviour
         normalspeed = Speed;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "caiu")
+        {
+            transform.position = new Vector3(1076, 0, -195);
+            acelerar = 0;
+        }
+    }
+
     void Update()
     {
         velocidadeatual.size = acelerar;
