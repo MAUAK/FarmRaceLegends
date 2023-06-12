@@ -25,12 +25,27 @@ public class Local_multiplayer_1 : MonoBehaviour
     public string tempovolta;
     public TMP_Text tempodavolta;
     public float gravity = 9.81f;
+    public GameObject rp;
 
     void Start()
     {
         normalspeed = Speed;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("arco"))
+        {
+            vitoria.SetActive(true);
+            tempovolta = tempotxt.text;
+            tempodavolta.text = tempovolta;
+        }
+        if (other.CompareTag("caiu"))
+        {
+            this.transform.position = rp.transform.position;
+            acelerar = 0;
+        }
+    }
     void Update()
     {
         velocidadeatual.size = acelerar;
@@ -109,6 +124,7 @@ public class Local_multiplayer_1 : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
 
         transform.Rotate(0, Input.GetAxis("Horizontal2") * rotateSpeed, 0);
+
     }
 
     public void contadortempo()

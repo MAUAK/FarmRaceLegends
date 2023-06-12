@@ -25,6 +25,7 @@ public class Movimento_time_trial : MonoBehaviour
     public string tempovolta;
     public TMP_Text tempodavolta;
     public float gravity = 9.81f;
+    public GameObject rp;
 
     void Start()
     {
@@ -33,9 +34,15 @@ public class Movimento_time_trial : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "caiu")
+        if (other.CompareTag("arco"))
         {
-            transform.position = new Vector3(1076, 0, -195);
+            vitoria.SetActive(true);
+            tempovolta = tempotxt.text;
+            tempodavolta.text = tempovolta;
+        }
+        if (other.CompareTag("caiu"))
+        {
+            this.transform.position = rp.transform.position;
             acelerar = 0;
         }
     }
@@ -118,6 +125,7 @@ public class Movimento_time_trial : MonoBehaviour
 
         transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
     }
+
 
     public void contadortempo() 
     {
