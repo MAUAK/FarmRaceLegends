@@ -43,6 +43,9 @@ MonoBehaviour:
   - compararposicao
   - <Update>g__qualposicao|30_0
   - <Update>g__qualposicao|37_0
+  - ButtonLeftRPC
+  - ButtonRightRPC
+  - SwitchPlayerRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

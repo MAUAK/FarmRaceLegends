@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex > 3) 
         {
             controleonline = GameObject.FindGameObjectWithTag("Networkcontroller").GetComponent<NetworkController>();
-            controledacorrida = GameObject.FindGameObjectWithTag("controlecorrida").GetComponent<RaceController>();
+            //controledacorrida = GameObject.FindGameObjectWithTag("controlecorrida").GetComponent<RaceController>();
             online = true;
         }
     }
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
             if (controleonline.online_conectado)
             {
-                controledacorrida.conectado = true;
+         //       controledacorrida.conectado = true;
             }
         }
 
