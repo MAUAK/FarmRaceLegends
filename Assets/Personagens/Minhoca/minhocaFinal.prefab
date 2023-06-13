@@ -1783,7 +1783,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6568630472970720824}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -2234,6 +2234,7 @@ GameObject:
   - component: {fileID: 8398451093120303515}
   - component: {fileID: 8398451093120303514}
   - component: {fileID: 8398451092898903399}
+  - component: {fileID: 1196699983}
   m_Layer: 0
   m_Name: minhocaFinal
   m_TagString: Untagged
@@ -2248,7 +2249,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8398451093120303516}
-  m_LocalRotation: {x: -0, y: -0.9581905, z: -0, w: 0.28613105}
+  m_LocalRotation: {x: 0, y: -0.9581904, z: 0, w: 0.28613162}
   m_LocalPosition: {x: 101.33, y: 1.97, z: 104.92}
   m_LocalScale: {x: 2.6175, y: 2.6175, z: 2.6175}
   m_ConstrainProportionsScale: 0
@@ -2304,6 +2305,23 @@ MonoBehaviour:
   tempovolta: 
   tempodavolta: {fileID: 0}
   gravity: 9.81
+  rp: {fileID: 0}
+--- !u!54 &1196699983
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398451093120303516}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8668341952229142548
 GameObject:
   m_ObjectHideFlags: 0

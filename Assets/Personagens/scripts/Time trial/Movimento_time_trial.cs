@@ -22,10 +22,11 @@ public class Movimento_time_trial : MonoBehaviour
     public int pontodecontrole;
     public TimerController controladortempo;
     public GameObject vitoria;
+    public GameObject derrota;
     public string tempovolta;
     public TMP_Text tempodavolta;
     public float gravity = 9.81f;
-    public GameObject rp;
+    public Transform rp;
 
     void Start()
     {
@@ -42,7 +43,8 @@ public class Movimento_time_trial : MonoBehaviour
         }
         if (other.CompareTag("caiu"))
         {
-            this.transform.position = rp.transform.position;
+            derrota.SetActive(true);
+            transform.position = rp.position;
             acelerar = 0;
         }
     }
