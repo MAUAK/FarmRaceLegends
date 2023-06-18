@@ -47,6 +47,10 @@ public class Movimento_time_trial : MonoBehaviour
             transform.position = rp.position;
             acelerar = 0;
         }
+        if (other.CompareTag("portal"))
+        {
+            transform.position = rp.position;
+        }
     }
 
     void Update()
